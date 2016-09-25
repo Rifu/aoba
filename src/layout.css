@@ -1,4 +1,8 @@
+body{
+  font-family: 'Open Sans', sans-serif;
+}
 .aoba__header{
+  position: relative;
   display: flex;
   align-items: center;
 
@@ -8,6 +12,9 @@
   font-size: 1.6em;
   color: white;
   background-color: #121212;
+
+  z-index: 2;
+  box-shadow: 2px 2px 8px #121212;
 }
 .aoba__headerIcon{
   height: 50px;
@@ -25,13 +32,15 @@
   padding-top: 24px;
 }
 .aoba__candy{
-  display: relative;
+  position: relative;
   width: 1280px;
   max-height: 720px;
   overflow: hidden;
 }
 .aoba__candy img{
   max-width: 1280px;
+
+  transition: all 300ms ease-in-out;
 }
 .aoba__candyPlayer{
   position: absolute;
@@ -40,10 +49,68 @@
   height: 720px;
 }
 .player__controls{
- position: absolute;
- height: 40px;
+  position: absolute;
+  display: flex;
 
- top: 0;
+  bottom: 0px;
+  left: 0px;
 
- font-size: 40px;
+  padding: 9px;
+  padding-top: 10px;
+  width: 100%;
+  box-sizing: border-box;
+
+  background-color: rgba(0,0,0,0.6);
+}
+.player__title{
+  font-size: 3em;
+  text-shadow: 2px 2px 8px #333;
+  color: white;
+
+  margin-left: 12px;
+  margin-top: 48px;
+  text-transform: uppercase;
+  font-weight: 300;
+}
+.player__seekContainer{
+  position: absolute;
+  bottom: 91px;
+  width: 1280px;
+  height: 10px;
+  margin-right: -6px;
+
+  z-index: 3;
+}
+.player__seek{
+  float:left;
+  height: 2px;
+
+  background-color: rgb(255,215,64);
+}
+.player__seek--end{
+  float: left;
+  height: 10px;
+  width: 5px;
+  margin-top: -5px;
+
+  background-color: rgb(255,215,64);
+}
+.player__control{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  height: 70px;
+  width: 70px;
+
+  font-size: 48px;
+  color: white;
+  border: 5px solid white;
+  border-radius: 7px;
+
+  cursor: pointer;
+}
+
+.mdl-button--colored{
+  background-color: white !important;
 }

@@ -26,5 +26,16 @@ body{
   margin-right: 2px;
 
 
-  transition: all 50ms linear;
+  transition: all 100ms linear;
+}
+.aoba__visualizerContainer{
+  position: absolute;
+  height: 720px;
+  width: 1280px;
+
+  z-index: 3;
+}
+
+.loading{
+  filter: blur(4px);
 }

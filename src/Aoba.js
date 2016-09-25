@@ -20,6 +20,10 @@ let frequencyData = new Uint8Array();
 class Aoba extends Component {
   constructor(){
     super();
+    this.state = {
+      currentPos: 0,
+      duration: 0
+    };
     this.renderAudioFrame = this.renderAudioFrame.bind(this);
   }
   componentDidMount(){
@@ -39,13 +43,18 @@ class Aoba extends Component {
     source.connect(analyser);
     analyser.connect(audioCtx.destination);
 
+    this.setState({
+      duration: audio.duration
+    })
     audio.play();
     this.renderAudioFrame();
   }
   renderAudioFrame(){
     requestAnimationFrame(this.renderAudioFrame);
     analyser.getByteFrequencyData(frequencyData);
-    this.forceUpdate();
+    this.setState({
+      currentPos: audioCtx.currentTime
+    });
   }
   render() {
     let bars = [];
@@ -60,13 +69,28 @@ class Aoba extends Component {
 
       bars.push(<VisualizerBar key={i} pos={i} height={value} />);
     });
+    let seekValue = 0;
+    let seekStyle = {}
+    if(audio !== null){
+      seekValue = (audio.currentTime/audio.duration)*100;  
+      seekStyle = {
+        width: seekValue + "%"
+      }
+    }
+    
     return (
-      <div>
+      <div className="aoba__visualizerContainer">
         <div className="aoba__visualizer">
           {bars}
         </div>
-        <audio id="aoba__player" className="aoba__player" src={track} controls>
-        </audio>
+        <div className="player__seekContainer">
+          <div className="player__seek" style={seekStyle}>
+
+          </div>
+          <div className="player__seek--end">
+
+          </div>
+        </div>
       </div>
     );
   }

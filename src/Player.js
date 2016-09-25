@@ -15,7 +15,6 @@ class Player extends Component {
     const audio = document.getElementById('aoba__player');
     audio.addEventListener('playing', this.didPlay);
     audio.addEventListener('pause', this.didPause);  
-    console.log(this.state.playing)
   }
   didPlay(){
     this.setState({playing: true});
@@ -33,7 +32,7 @@ class Player extends Component {
   }
   render() {
     let ctrlBtn = "";
-    console.log(this.state.playing)
+
     if(this.state.playing){
       ctrlBtn = "fa fa-pause"
     }else{
@@ -42,8 +41,12 @@ class Player extends Component {
     return (
       <div className="aoba__candyPlayer">
         <div className="player__controls">
-
-          <i className={ctrlBtn} onClick={this.togglePause}></i>
+          <div className="player__control" onClick={this.togglePause}>
+            <i className={ctrlBtn} ></i>
+          </div>
+          <div className="player__title">
+            <span>{this.props.title}</span>
+          </div>
         </div>
       </div>
     );
