@@ -51,7 +51,7 @@ body{
 }
 .aoba__candyPlayer{
   position: absolute;
-  z-index: 2;
+  z-index: 4;
   width: 1280px;
   height: 720px;
 }
