@@ -61,10 +61,12 @@ class Aoba extends Component {
     frequencyData.forEach(function(value, i){
       if(i < 20 && value > 60){
         value = value - 50;
-      }else if(i < 100 && value > 10){
+      }else if(i < 75 && value > 10){
         value = value + 20;
-      }else if(i > 100 && value > 30){
+      }else if(i < 100 && value > 30){
         value = value + 70;
+      }else if(i > 100 && value > 0){
+        value = value + 40;
       }
 
       bars.push(<VisualizerBar key={i} pos={i} height={value} />);
