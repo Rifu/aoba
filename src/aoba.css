@@ -1,29 +1,35 @@
 body{
   background-color: #121212;
 }
+.aoba__layoutContainer{
+  display: flex;
+  justify-content: center;
+  margin-top: 12px;
+}
 .aoba__player{
   display: none;
 }
 .aoba__header{
   position: relative;
-  display: flex;
-  align-items: center;
-
-  height: 80px;
-  padding: 0 24px;
+  padding-top: 0;
 
   font-size: 1.6em;
   color: white;
-  background-color: #121212;
 
   z-index: 2;
-  box-shadow: 2px 2px 8px #121212;
+
+
+}
+.aoba__headerTagline{
+  padding: 24px;
+  padding-left: 4px;
+  margin-bottom: 24px;
+
+  border-bottom: 1px solid white;
 }
 .aoba__headerIcon{
-  height: 50px;
-  width: 50px;
-  border-radius: 25px;
-  margin-right: 12px;
+  height: 150px;
+  width: 150px;
 
   background-image: url('aoba.jpg');
   background-size: cover;
@@ -31,8 +37,6 @@ body{
 .aoba__layout{
   display: flex;
   justify-content: center;
-
-  padding-top: 24px;
 }
 .aoba__candy{
   position: relative;

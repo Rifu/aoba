@@ -13,12 +13,6 @@ class Layout extends Component {
 
     return (
       <div>
-        <header className="aoba__header">
-          <div className="aoba__headerIcon">
-
-          </div>
-          今日も一日がんばるぞい
-        </header>
         <div className="aoba__layout">
           <div className="aoba__candy">
             <Aoba />

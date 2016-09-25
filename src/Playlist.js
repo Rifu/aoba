@@ -100,8 +100,16 @@ class Playlist extends Component {
     }.bind(this));
 
     return (
-      <div>
+      <div className="aoba__layoutContainer">
         <div className="playlist__container">
+          <header className="aoba__header">
+            <div className="aoba__headerIcon">
+
+            </div>
+            <div className="aoba__headerTagline">
+              今日も一日がんばるぞい
+            </div>
+          </header>
           {tracksHolder}
           <audio id="aoba__player" className="aoba__player" src={this.state.currentTrack.url} controls>
           </audio>

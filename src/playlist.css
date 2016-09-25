@@ -1,16 +1,14 @@
 .playlist__container{
-  position: fixed;
   left: 0;
   z-index: 5;
-  height: 100vh;
   width: 300px;
 
-  margin-top: 104px;
+  margin-top: 0;
+  margin-right: 12px;
 }
 
 .playlist__track{
   margin-bottom: 12px;
-  margin-left: -12px;
 
   max-width: 280px;
 
@@ -19,5 +17,5 @@
   transition: all 200ms ease-out;
 }
 .playlist__track:hover{
-  margin-left: 0;
+  padding-right: 12px;
 }
