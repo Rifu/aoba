@@ -31,7 +31,7 @@ class Aoba extends Component {
   }
   componentDidMount(){
     audio = document.getElementById('aoba__player');
-
+    audio.crossOrigin = "anonymous";
     audioCtx = new AudioContext();
     // audioFilter = audioCtx.createBiquadFilter();
     // audioFilter.type = "bandpass";
