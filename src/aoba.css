@@ -1,5 +1,6 @@
 body{
   background-color: #121212;
+  min-width: 1000px;
 }
 .aoba__layoutContainer{
   display: flex;
@@ -54,6 +55,20 @@ body{
   z-index: 4;
   width: 1280px;
   height: 720px;
+}
+.aoba__beats{
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 620px;
+  width: 100%;
+  z-index: 1;
+  opacity: 0.2;
+
+  transition: all 100ms ease-in-out;
+}
+.aoba__beats.hasBeat{
+  opacity: 1;
 }
 .aoba__visualizer{
   display: flex;
@@ -117,5 +132,8 @@ body{
   }
   .aoba__candy img{
     max-width: 720px;
+  }
+  .aoba__beats{
+    height: 380px;
   }
 }

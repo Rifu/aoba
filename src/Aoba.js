@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import './aoba.css';
 import VisualizerBar from './VisualizerBar.js';
+
 const track = require('./LetsJump.mp3');
 
+const delta = 56;
 let audio = null;
 let audioCtx = null;
 let analyser = null;
@@ -22,7 +24,8 @@ class Aoba extends Component {
     super();
     this.state = {
       currentPos: 0,
-      duration: 0
+      duration: 0,
+      currentMax: 0
     };
     this.renderAudioFrame = this.renderAudioFrame.bind(this);
   }
@@ -48,16 +51,36 @@ class Aoba extends Component {
     })
     audio.play();
     this.renderAudioFrame();
+
+    particlesJS.load('aoba__particles', "/particles-config.json");
   }
   renderAudioFrame(){
     requestAnimationFrame(this.renderAudioFrame);
     analyser.getByteFrequencyData(frequencyData);
-    this.setState({
-      currentPos: audioCtx.currentTime
-    });
+    const maxValue = Math.max( ...frequencyData );
+    if(audioCtx.currentTime < 2){
+      this.setState({
+        currentMax: 0,
+        currentPos: audioCtx.currentTime
+      })
+    }else{
+      if(maxValue > this.state.currentMax){
+        this.setState({
+          currentMax: maxValue,
+          currentPos: audioCtx.currentTime
+        });
+      }else{
+        this.setState({
+          currentPos: audioCtx.currentTime
+        });
+      }
+    }
   }
   render() {
     let bars = [];
+    let currentMax = this.state.currentMax;
+    let hasBeat = false;
+
     frequencyData.forEach(function(value, i){
       if(i < 20 && value > 60){
         value = value - 50;
@@ -70,7 +93,12 @@ class Aoba extends Component {
       }
 
       bars.push(<VisualizerBar key={i} pos={i} height={value} />);
+
+      if(value > currentMax - delta){
+        hasBeat = true
+      }
     });
+
     let seekValue = 0;
     let seekStyle = {}
     if(audio !== null){
@@ -79,13 +107,20 @@ class Aoba extends Component {
         width: seekValue + "%"
       }
     }
-    
+    let aobaBeat = "aoba__beats";
+    if(hasBeat){
+      aobaBeat = "aoba__beats hasBeat";
+    }
+
     return (
       <div className="aoba__visualizerContainer">
+        <div id="aoba__particles" className={aobaBeat}>
+        </div>
         <div className="aoba__visualizer">
           {bars}
         </div>
         <div className="player__seekContainer">
+          {hasBeat}
           <div className="player__seek" style={seekStyle}>
 
           </div>

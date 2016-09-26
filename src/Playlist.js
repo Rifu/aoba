@@ -79,6 +79,7 @@ class Playlist extends Component {
     this.handleClick(nextPos, this.state.tracks);
   }
   updatePlayer(){
+    particlesJS.load('aoba__particles', "/particles-config.json");
     const audio = document.getElementById('aoba__player');
     audio.play();
 
@@ -90,7 +91,6 @@ class Playlist extends Component {
   }
 
   render() {
-    console.log(this.state.isLoading);
     let tracksHolder = []
     let currentTrackPos = this.state.currentTrackPos;
     let tracks = this.state.tracks;
