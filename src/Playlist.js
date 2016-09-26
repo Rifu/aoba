@@ -47,7 +47,7 @@ const usushioGirl = {
   background: akariBg
 }
 
-const tracks = [sakuraSkip, radioHappy, letsJump, cyaron, stayAlive, usushioGirl]
+let tracks = [sakuraSkip, radioHappy, letsJump, cyaron, stayAlive, usushioGirl]
 
 class Playlist extends Component {
   constructor(){
@@ -64,6 +64,26 @@ class Playlist extends Component {
   componentDidMount(){
     const audio = document.getElementById('aoba__player');
     audio.addEventListener('ended', this.playNext);
+    this.loadExternalTracks();
+  }
+  loadExternalTracks(){
+    fetch("http://fuyukaide.su/tracks")
+    .then(function(response){
+      return response.json();
+    }).then(function(response){
+      response.tracks.forEach(function(item){
+        let track = {
+          title: item.title,
+          url: item.url,
+          background: item.background
+        }
+
+        tracks.push(item);
+      });
+      this.setState({
+        tracks: tracks
+      })
+    }.bind(this));
   }
   handleClick(i, items){
     if(i !== this.state.currentTrackPos){

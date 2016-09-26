@@ -13,7 +13,8 @@
   max-width: 280px;
 
   font-size: em;
-
+  word-break: break-all;
+  overflow: hidden;
   transition: all 200ms ease-out;
 }
 .playlist__track:hover{
