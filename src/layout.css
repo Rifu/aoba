@@ -11,12 +11,13 @@ body{
   padding: 9px;
   padding-top: 10px;
   width: 100%;
+  max-height: 100px;
   box-sizing: border-box;
 
   background-color: rgba(0,0,0,0.6);
 }
 .player__title{
-  font-size: 3em;
+  font-size: 2.5em;
   text-shadow: 2px 2px 8px #333;
   color: white;
 
@@ -24,6 +25,10 @@ body{
   margin-top: 48px;
   text-transform: uppercase;
   font-weight: 300;
+
+  word-break: break-all;
+  max-width: 1000px;
+
 }
 .player__seekContainer{
   position: absolute;
@@ -31,7 +36,7 @@ body{
   width: 1280px;
   height: 10px;
   margin-right: -6px;
-
+  line-height: initial;
   z-index: 3;
 }
 .player__seek{
