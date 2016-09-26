@@ -42,7 +42,7 @@ body{
 .aoba__candy{
   position: relative;
   width: 1280px;
-  max-height: 720px;
+  height: 720px;
   overflow: hidden;
 }
 .aoba__candy img{
