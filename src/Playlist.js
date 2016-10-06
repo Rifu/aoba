@@ -15,6 +15,8 @@ const akariTrack = require('./UsushioGirl.mp3');
 const akariBg = require('./akari.jpg');
 const cyaronTrack = require('./yozora.mp3');
 const cyaronBg = require('./cyaron.png');
+const myucelTrack = require('./univerPage.mp3');
+const myucelBg = require('./myucel.png');
 
 const sakuraSkip = {
   title: "Sakura Skip",
@@ -46,13 +48,19 @@ const usushioGirl = {
   url: akariTrack,
   background: akariBg
 }
+const univerPage = {
+  title: "ユニバーページ(y0c1e remix)",
+  url: myucelTrack,
+  background: myucelBg
+}
 
-let tracks = [sakuraSkip, radioHappy, letsJump, cyaron, stayAlive, usushioGirl]
+let tracks = [univerPage, sakuraSkip, radioHappy, letsJump, cyaron, stayAlive, usushioGirl]
 
 class Playlist extends Component {
   constructor(){
     super();
-    const initialPos = Math.floor(Math.random() * tracks.length);
+    //const initialPos = Math.floor(Math.random() * tracks.length);
+    const initialPos = 0;
     this.state = {
       tracks: tracks,
       currentTrack: tracks[initialPos],
