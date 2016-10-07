@@ -54,7 +54,7 @@ const univerPage = {
   background: myucelBg
 }
 
-let tracks = [univerPage, sakuraSkip, radioHappy, letsJump, cyaron, stayAlive, usushioGirl]
+let tracks = [usushioGirl, univerPage, sakuraSkip, radioHappy, letsJump, cyaron, stayAlive]
 
 class Playlist extends Component {
   constructor(){
